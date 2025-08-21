@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
+const baseUrl = import.meta.env.VITE_BACKEND_URL;  
+
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -11,7 +13,7 @@ export default function Login() {
         e.preventDefault();
 
         try {
-            const res = await fetch("http://localhost:4000/auth/login", {
+            const res = await fetch(`${baseUrl}/auth/login`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, password }),

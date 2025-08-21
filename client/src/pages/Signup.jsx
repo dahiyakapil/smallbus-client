@@ -3,6 +3,9 @@ import axios from 'axios'
 import { toast } from 'sonner'
 import { useNavigate } from 'react-router-dom'
 
+const baseUrl = import.meta.env.VITE_BACKEND_URL;  
+
+
 export default function Signup() {
   const [formData, setFormData] = useState({ name: "", email: "", password: "" })
   const navigate = useNavigate()
@@ -14,7 +17,7 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      await axios.post("http://localhost:4000/auth/signup", formData)
+      await axios.post(`${baseUrl}/auth/login/auth/signup`, formData)
       toast.success("Signup successful! Redirecting to login...")
       setTimeout(() => {
         navigate("/login")

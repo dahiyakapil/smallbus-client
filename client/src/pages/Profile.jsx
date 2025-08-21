@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "sonner";
 
+const baseUrl = import.meta.env.VITE_BACKEND_URL;  
+
+
 export default function ProfilePage() {
   const [user, setUser] = useState(null);
   const [form, setForm] = useState({ name: "", password: "" });
@@ -12,7 +15,7 @@ export default function ProfilePage() {
       const token = localStorage.getItem("token");
       if (!token) return;
 
-      const res = await axios.get("http://localhost:4000/auth/profile", {
+      const res = await axios.get(`${baseUrl}/auth/login/auth/profile`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
