@@ -15,7 +15,7 @@ export default function ProfilePage() {
       const token = localStorage.getItem("token");
       if (!token) return;
 
-      const res = await axios.get(`${baseUrl}/auth/login/auth/profile`, {
+      const res = await axios.get(`${baseUrl}/auth/profile`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

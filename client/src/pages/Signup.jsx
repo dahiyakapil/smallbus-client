@@ -17,7 +17,7 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      await axios.post(`${baseUrl}/auth/login/auth/signup`, formData)
+      await axios.post(`${baseUrl}/auth/signup`, formData)
       toast.success("Signup successful! Redirecting to login...")
       setTimeout(() => {
         navigate("/login")
